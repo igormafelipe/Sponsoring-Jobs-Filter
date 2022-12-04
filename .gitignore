@@ -1,3 +1,6 @@
 TOKEN.txt
 *.xlsx
+
+#folders
 /node_modules
+/__pycache__

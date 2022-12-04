@@ -1,1 +1,24 @@
-yo
+OVERVIEW: This is a program to fetch from a list of companies in a .xlsx file,
+and look for current job postings from these companies. The program allows you to filter based on some creteria explained in USAGE.
+
+PURPOSE: Looking for job opportunities abroad can be challenging, and finding
+companies that actually sponsor can be even harder. It is common for Linkedin
+applications and other websites to label a job as "May Sponsor", just to later
+on find that they in fact do not sponsor for that position.
+
+Government websited usually provide a list (usualy in .xlsx) of companies that 
+are able to sponsor for a Worker's Visa. Based on this list, this program is 
+able to then filter for current job posting from these acredited companies.
+
+USAGE
+
+Set the search parameters in search_params.py:
+
+  1. INPUT_FILE_PATH = Input a .xlsx file with the list of companies
+  2. FILTER_COL_LABEL = Label of the column in INPUT_FILE that contains the roles the company is hiring for
+  3. COMPANY_COL_LABEL = Label of the column in INPUT_FILE that contains the name of the companies
+  4. POSITION_KEYWORDS = Keywords to filter jobs by. If the desired position is Software Engineering, for example, keywords may be Software, Engineering, Programmer, Developer, etc..
+  5. EXPERIENCE_RANGE = (x, y) where x is the minimum amount of experience for 
+  the desired role, and y is the maximum amount of experience.
+  6. SENIORITY_EXCLUDE = Keywords related to seniority of role to be excluded when looking for positions. For example if Senior and Staff are included, positions like Senior Software Engineer and Staff Developer will be excluded.
+  7. OUTPUT_FILE_NAME = Name of file for results to be outputed to.
