@@ -1,0 +1,4 @@
+pandas
+re
+careerjet_api_client
+tqdm
