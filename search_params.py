@@ -9,6 +9,7 @@
 INPUT_FILE_PATH = "/Users/Igor/Desktop/company_filter/companies_list.xlsx"
 
 # LABEL OF THE COL THAT CONTAINS THE ROLE OF THE JOBS
+# IF THERE IS NO SUCH COL, PUT None, but this will take MUCH LONGER
 FILTER_COL_LABEL = 'Occupation'
 
 # LABEL OF THE COL THAT CONTAINS THE COMPANY NAMES

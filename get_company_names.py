@@ -54,7 +54,10 @@ def get_possible_comapany_keywords(strs: list[str]):
 def get_company_names():
     companies_data = pd.read_excel(sp.INPUT_FILE_PATH)
     position_regex = "|".join(sp.POSITION_KEYWORDS)
-    related_companies = companies_data.loc[companies_data[sp.FILTER_COL_LABEL].str.contains(position_regex, na=False, regex=True)]
+    if sp.FILTER_COL_LABEL != None:
+        related_companies = companies_data.loc[companies_data[sp.FILTER_COL_LABEL].str.contains(position_regex, na=False, regex=True)]
+    else:
+        related_companies = companies_data
             
     companies_list: list = related_companies[sp.COMPANY_COL_LABEL].to_list()
     companies_list = normalize_strings(companies_list)
