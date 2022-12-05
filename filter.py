@@ -72,7 +72,7 @@ print(f"Keywords: {', '.join(sp.POSITION_KEYWORDS)}")
 print(f"Excluded Seniorities: {', '.join(sp.SENIORITY_EXCLUDE)}")
 try:
     possible_companies: dict = get_company_names()
-    cja  =  careerjet_api_client.CareerjetAPIClient("en_CA");
+    cja  =  careerjet_api_client.CareerjetAPIClient(sp.LOCATION);
 
     jobs = fetch_positions(possible_companies, "Software Engineer")
     output_excel(pd.DataFrame.from_dict(jobs))

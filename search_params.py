@@ -1,6 +1,8 @@
 # !/usr/bin/env python3
 # File controlling the parameters used in the search
 
+LOCATION = "en_CA"
+
 ############################################################
 ################ FILTERING VARIABLES #######################
 ############################################################

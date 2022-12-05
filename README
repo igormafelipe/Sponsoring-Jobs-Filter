@@ -10,10 +10,12 @@ Government websited usually provide a list (usualy in .xlsx) of companies that
 are able to sponsor for a Worker's Visa. Based on this list, this program is 
 able to then filter for current job posting from these acredited companies.
 
+
 USAGE
 
 Set the search parameters in search_params.py:
 
+  0. LOCATION = Which country to look for positions in. Choose from the list bellow
   1. INPUT_FILE_PATH = Input a .xlsx file with the list of companies
   2. FILTER_COL_LABEL = Label of the column in INPUT_FILE that contains the roles the company is hiring for
   3. COMPANY_COL_LABEL = Label of the column in INPUT_FILE that contains the name of the companies
@@ -22,3 +24,59 @@ Set the search parameters in search_params.py:
   the desired role, and y is the maximum amount of experience.
   6. SENIORITY_EXCLUDE = Keywords related to seniority of role to be excluded when looking for positions. For example if Senior and Staff are included, positions like Senior Software Engineer and Staff Developer will be excluded.
   7. OUTPUT_FILE_NAME = Name of file for results to be outputed to.
+
+
+LOCATION COUNTRY CODES
+
+The coutry code is accompanied by a language. Not all countries have English. While the search will be functional, the results will be in their respective language.
+
+
+ENGLISH:
+en_AE  => United Arab Emirates                  
+en_AU  => Australia              
+en_BD  => Bangladesh              
+en_CA  => Canada                 
+en_CN  => China              
+en_HK  => Hong Kong                  
+en_IE  => Ireland                  
+en_IN  => India               
+en_KW  => Kuwait              
+en_MY  => Malaysia              
+en_NZ  => New Zealand         
+en_OM  => Oman              
+en_PH  => Philippines                  
+en_PK  => Pakistan              
+en_QA  => Qatar              
+en_SG  => Singapore                  
+en_GB  => United Kingdom               
+en_US  => Uninated States                 
+en_ZA  => South Africa               
+en_SA  => Saudi Arabia    
+en_TW  => Taiwan              
+en_VN  => Vietnam
+
+CZECH:
+cs_CZ  => Czech Republic                  
+
+DANISH:
+da_DK  => Denmark
+
+GERMAN:
+de_AT  => Austria                  
+de_CH  => Switzerland                  
+de_DE  => Germany      
+
+SPANISH:
+es_AR  => Argentina        
+es_BO  => Bolivia          
+es_CL  => Chile                     
+es_EC  => Ecuador             
+es_ES  => Spain       
+es_MX  => Mexico
+
+FRENCH:
+fr_FR  => France                        
+
+PORTUGUESE:
+pt_PT  => Portugal               
+pt_BR  => Brasil                                                      
