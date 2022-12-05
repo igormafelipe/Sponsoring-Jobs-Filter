@@ -39,7 +39,9 @@ def fetch_positions(companies: dict, position: str):
     experience = get_experiences()
     used = set()
     cja = careerjet_api_client.CareerjetAPIClient(sp.LOCATION);
+    filtered_count = 0
     for company in tqdm(companies):
+        filtered_count += 1
         for company_possible_name in companies[company]:
             try:
                result_json = cja.search({
@@ -50,7 +52,7 @@ def fetch_positions(companies: dict, position: str):
                             'user_agent'  : 'Chrome'
                         });
             except Exception:
-                return all_jobs
+                return all_jobs, filtered_count
             
             if 'jobs' not in result_json:
                 continue
@@ -59,8 +61,7 @@ def fetch_positions(companies: dict, position: str):
                 job_key = job['title'] + job['date'] + job['company']
                 if (job_key in used or
                     job['company'] == "" or
-                    any([x in job['description'] for x in experience]) or
-                    any([y.lower() in job['title'].lower() for y in sp.SENIORITY_EXCLUDE])):
+                    any([x in job['description'] for x in experience])):
                     continue
                 
                 if (any(job['company'].lower() in x for x in companies) and 
@@ -72,8 +73,7 @@ def fetch_positions(companies: dict, position: str):
                             all_jobs[key] = []
                         all_jobs[key].append(job[key])
                     used.add(job_key)
-
-    return all_jobs
+    return all_jobs, filtered_count
 
 
 def filter():
@@ -81,8 +81,8 @@ def filter():
     print(f"Excluded Seniorities: {', '.join(sp.SENIORITY_EXCLUDE)}")
     try:
         possible_companies: dict = get_company_names()
-        jobs = fetch_positions(possible_companies, "Software Engineer")
+        jobs, filtered_count = fetch_positions(possible_companies, sp.POSITION)
         output_excel(pd.DataFrame.from_dict(jobs))
-        print(f"Successfully outputed to {sp.OUTPUT_FILE_NAME}.xlsx")
+        print(f"Successfully outputed {filtered_count}/{len(possible_companies)} jobs to {sp.OUTPUT_FILE_NAME}.xlsx")
     except Exception as e:
         print(f"Whoops, something went wrong\n{e}\nAborting...")
