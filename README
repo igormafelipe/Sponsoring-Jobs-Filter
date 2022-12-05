@@ -79,4 +79,14 @@ fr_FR  => France
 
 PORTUGUESE:
 pt_PT  => Portugal               
-pt_BR  => Brasil                                                      
+pt_BR  => Brasil             
+
+
+REQUIREMENTS
+
+This program requires Python 3.3 or greater. To install it, go to python.org
+This program requires the following packages, all of which will be automatically installed:
+
+pandas
+careerjet_api_client
+tqdm
