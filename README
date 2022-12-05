@@ -79,7 +79,10 @@ fr_FR  => France
 
 PORTUGUESE:
 pt_PT  => Portugal               
-pt_BR  => Brasil             
+pt_BR  => Brasil    
+
+DUTCH:
+nl_NL  => Netherlands
 
 
 REQUIREMENTS

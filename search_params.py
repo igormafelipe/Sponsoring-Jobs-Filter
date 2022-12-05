@@ -1,21 +1,21 @@
 # !/usr/bin/env python3
 # File controlling the parameters used in the search
 
-LOCATION = "en_CA"
+LOCATION = "nl_NL"
 
 ############################################################
 ################ FILTERING VARIABLES #######################
 ############################################################
 
 # FILE PATH OF EXCELL FORMAT FILE WITH PERMITTED COMPANIES FROM COUNTRY
-INPUT_FILE_PATH = "/Users/Igor/Desktop/company_filter/companies_list.xlsx"
+INPUT_FILE_PATH = "/Users/Igor/Desktop/company_filter/netherlands_list.xlsx"
 
 # LABEL OF THE COL THAT CONTAINS THE ROLE OF THE JOBS
 # IF THERE IS NO SUCH COL, PUT None, but this will take MUCH LONGER
-FILTER_COL_LABEL = 'Occupation'
+FILTER_COL_LABEL = None
 
 # LABEL OF THE COL THAT CONTAINS THE COMPANY NAMES
-COMPANY_COL_LABEL = 'Employer'
+COMPANY_COL_LABEL = 'Companies'
 
 # KEYWORDS TO LOOK FOR POSITION. THE MORE, THE BETTER
 POSITION_KEYWORDS = ["Software Engineering", "Software", "Programmer", "Developer"]

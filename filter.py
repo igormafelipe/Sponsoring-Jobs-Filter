@@ -16,12 +16,14 @@ FETCH_KEYS = ["locations", "date", "title", "company", "url"]
 # of range.
 EXPERIENCE_EXCLUSION = 15
 
+# Outputs the given pd object to excel 
 def output_excel(pd: object):
     out_file = sp.OUTPUT_FILE_NAME + ".xlsx"
     if os.path.exists(out_file):
         os.remove(out_file)
     pd.to_excel(out_file)
 
+# Creates a list of experience keywords to avoid when looking for jobs.
 def get_experiences():
     min_exp, max_exp = sp.EXPERIENCE_RANGE
     less_than_min = [str(x) + " years" for x in range(0, min_exp)]
@@ -29,6 +31,8 @@ def get_experiences():
     more_than_max_p = [str(x) + "+ years" for x in range(max_exp + 1, EXPERIENCE_EXCLUSION)]
     return less_than_min + more_than_max + more_than_max_p
 
+
+#Gets the desired position jobs from Careerjet website
 def fetch_positions(companies: dict, position: str):
     all_jobs = {}
     positions = set(sp.POSITION_KEYWORDS)
@@ -37,14 +41,17 @@ def fetch_positions(companies: dict, position: str):
     cja = careerjet_api_client.CareerjetAPIClient(sp.LOCATION);
     for company in tqdm(companies):
         for company_possible_name in companies[company]:
-            result_json = cja.search({
+            try:
+               result_json = cja.search({
                             'keywords'    : position + " " + company_possible_name,
                             'affid'       : '069f8b7ca985d7c45f58ba3cfdf773da',
                             'user_ip'     : '130.64.225.4',
                             'url'         : 'https://igormafelipe.github.io/igormfe/',
                             'user_agent'  : 'Chrome'
                         });
-
+            except Exception:
+                return all_jobs
+            
             if 'jobs' not in result_json:
                 continue
             
